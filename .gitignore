@@ -1,0 +1,7 @@
+spider-back/node_modules
+spider-back/.env
+
+spider-front/node_modules
+spider-front/build
+spider-front/.env
+
