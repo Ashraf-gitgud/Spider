@@ -1,0 +1,130 @@
+/* General footer styles */
+.footer {
+  background: linear-gradient(180deg, white 0%, #ffb300 100%);
+  color: #1a1a1a;
+  padding: 60px 20px 40px;
+  font-family: 'Arial', sans-serif;
+  margin-top: 40px;
+  position: relative;
+}
+
+/* Pseudo-elements for white sides */
+.footer::before, 
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+}
+
+.footer::before {
+  left: 0;
+}
+
+.footer::after {
+  right: 0;
+}
+
+/* Footer content layout */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Footer brand section */
+.footer-brand {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Footer links section */
+.footer-links {
+  display: flex;
+  gap: 50px;
+}
+
+.links-column h3 {
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.links-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links-column li {
+  margin-bottom: 10px;
+}
+
+.links-column a {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links-column a:hover {
+  color: #333;
+}
+
+/* Footer social section */
+.footer-social h3 {
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #1a1a1a;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #333;
+}
+
+/* Footer bottom section */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #1a1a1a;
+}
+
+.footer-bottom p {
+  color: #333;
+  margin: 0;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    justify-content: center;
+  }
+}

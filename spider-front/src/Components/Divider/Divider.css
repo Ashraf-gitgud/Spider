@@ -1,0 +1,42 @@
+/* Divider.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 3rem;
+  background: linear-gradient(to right, rgb(255, 255, 255) 9%, #fff7ed); /* Matches Nav gradient */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Matches Nav shadow */
+  margin: 2rem 0; /* Adds spacing above and below */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.divider-content {
+  text-align: center;
+  max-width: 800px; /* Limits content width for readability */
+}
+
+.divider-title {
+  font-size: 2rem; /* Slightly larger for prominence */
+  font-weight: 700;
+  color: #2d3748; /* Matches Nav text color */
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider-title i {
+  margin-right: 0.6rem;
+  font-size: 1.5rem; /* Icon size to match Nav's larger icons */
+  color: #ffb300; /* Matches Nav's accent color */
+}
+
+.divider-description {
+  font-size: 1.5rem; /* Matches Nav's larger font size */
+  font-weight: 600;
+  color: #2d3748;
+  line-height: 1.6; /* Improves readability */
+}
