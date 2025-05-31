@@ -3,7 +3,7 @@
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Spread items across */
+  justify-content: space-between;
   padding: 1.5rem 3rem;
   background: linear-gradient(to right, rgb(255, 255, 255) 9%, #ffb300);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
@@ -27,15 +27,21 @@
   object-fit: contain;
 }
 
+.logo-container a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .nav-links {
   display: flex;
   list-style-type: none;
-  margin-left: 290px; /* Center the nav links */
+  margin-left: 290px;
   padding: 0;
 }
 
 .nav-links li {
-  margin: 0 1rem; /* Adjusted spacing */
+  margin: 0 1rem;
 }
 
 .nav-links a {
@@ -62,7 +68,7 @@
 }
 
 .profile-dropdown {
-  margin-left: auto; /* Push profile to far right */
+  position: relative;
 }
 
 .dropbtn {
@@ -100,7 +106,7 @@
 .dropdown-content {
   position: absolute;
   top: 100%;
-  right: 0; /* Align dropdown to the right for profile */
+  right: 0;
   background: linear-gradient(to bottom, #ffffff, #fff7ed);
   min-width: 200px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
@@ -143,4 +149,107 @@
 .dropdown-content i {
   margin-right: 0.6rem;
   font-size: 1.1rem;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #2d3748;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+  color: #f6ad55;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+    padding: 1rem 1.5rem;
+  }
+
+  .logo-container {
+    width: 60px;
+    height: 40px;
+    margin-right: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .profile-dropdown {
+    width: 100%;
+  }
+
+  .dropbtn {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    min-width: unset;
+    box-shadow: none;
+    border-radius: 0;
+    background: #fff7ed;
+  }
+
+  .dropdown-content a,
+  .dropdown-content button {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 1rem;
+  }
+
+  .logo-container {
+    width: 50px;
+    height: 35px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .dropbtn {
+    font-size: 0.9rem;
+  }
+
+  .dropdown-content a,
+  .dropdown-content button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
 }

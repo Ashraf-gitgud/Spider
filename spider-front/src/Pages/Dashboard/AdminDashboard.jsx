@@ -14,7 +14,6 @@ const AdminDashboard = () => {
     fetchApps();
   }, []);
 
-  // Create an axios instance with default headers
   const axiosInstance = axios.create({
     baseURL: 'http://localhost:8000/api',
     headers: {

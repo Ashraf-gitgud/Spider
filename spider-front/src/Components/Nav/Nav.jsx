@@ -6,6 +6,7 @@ import logo from '../../anka.png';
 function Nav() {
   const [isCreationsOpen, setIsCreationsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
@@ -17,38 +18,50 @@ function Nav() {
     setIsProfileOpen(!isProfileOpen);
   };
 
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsProfileOpen(false);
+    setIsNavOpen(false);
     navigate('/');
   };
 
   return (
     <nav className="nav">
       <div className="logo-container">
-        <img src={logo} alt="Logo" className="logo" />
+        <Link to="/" onClick={() => setIsNavOpen(false)}>
+          <img src={logo} alt="Logo" className="logo" />
+        </Link>
       </div>
-      <ul className="nav-links">
-        <li><Link to="/"><i className="fas fa-home"></i>Home</Link></li>
-        <li><Link to="/services"><i className="fas fa-cogs"></i>Services</Link></li>
-        <li><Link to="/contact"><i className="fas fa-envelope"></i>Contact</Link></li>
-        <li><Link to="/about"><i className="fas fa-info-circle"></i>About</Link></li>
-      </ul>
-      {token && (
-        <div className="dropdown profile-dropdown">
-          <button className="dropbtn" onClick={toggleProfile}>
-            <i className="fas fa-user"></i>
-            Profile
-            <i className={`fas fa-chevron-down arrow ${isProfileOpen ? 'open' : ''}`}></i>
-          </button>
-          <div className={`dropdown-content ${isProfileOpen ? 'open' : ''}`}>
-            <Link to="/dashboard"><i className="fas fa-tachometer-alt"></i>Dashboard</Link>
-            <button onClick={handleLogout} className="logout-btn">
-              <i className="fas fa-sign-out-alt"></i>Logout
+      <button className="hamburger" onClick={toggleNav}>
+        <i className={`fas ${isNavOpen ? 'fa-times' : 'fa-bars'}`}></i>
+      </button>
+      <ul className={`nav-links ${isNavOpen ? 'open' : ''}`}>
+        <li><Link to="/" onClick={() => setIsNavOpen(false)}><i className="fas fa-home"></i>Home</Link></li>
+        <li><Link to="/services" onClick={() => setIsNavOpen(false)}><i className="fas fa-cogs"></i>Services</Link></li>
+        <li><Link to="/contact" onClick={() => setIsNavOpen(false)}><i className="fas fa-envelope"></i>Contact</Link></li>
+        <li><Link to="/about" onClick={() => setIsNavOpen(false)}><i className="fas fa-info-circle"></i>About</Link></li>
+        {token && (
+          <li className="profile-dropdown">
+            <button className="dropbtn" onClick={toggleProfile}>
+              <i className="fas fa-user"></i>
+              Profile
+              <i className={`fas fa-chevron-down arrow ${isProfileOpen ? 'open' : ''}`}></i>
             </button>
-          </div>
-        </div>
-      )}
+            <div className={`dropdown-content ${isProfileOpen ? 'open' : ''}`}>
+              <Link to="/dashboard" onClick={() => { setIsNavOpen(false); setIsProfileOpen(false); }}>
+                <i className="fas fa-tachometer-alt"></i>Dashboard
+              </Link>
+              <button onClick={handleLogout} className="logout-btn">
+                <i className="fas fa-sign-out-alt"></i>Logout
+              </button>
+            </div>
+          </li>
+        )}
+      </ul>
     </nav>
   );
 }
